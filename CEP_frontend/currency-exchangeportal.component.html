@@ -1,0 +1,93 @@
+<div class="background-image">
+  <h2 class="mt-2 " style="text-align: right; margin-right: 10px;">Customer Name : <span class="text-success fw-bold"> {{userName[0] | uppercase}}</span></h2>
+
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center rounded   py-2 mb-3" style="color: rgb(3, 54, 37);letter-spacing: 0.2rem;">Exchange
+          Currency</h1>
+        <form [formGroup]="exchangeDetails">
+          <div class="my-3 d-flex">
+            <div class="flex-grow-1">
+              <label for="fromCurrency" class="form-label">Debit From<span class="text-danger">*</span> :</label>
+              <select class="form-select form-control-lg border border-secondary" id="fromCurrency"
+                placeholder="select account" formControlName="orderFromAccountId" required>
+                <option value="" disabled selected>Select currency</option>
+                <option *ngFor="let i of accounts;" [value]="i.id">{{i.currencyType}}-{{i.accountNumber}}</option>
+              </select>
+            </div>
+            <div class="ms-2 w-25">
+              <label for="balance" class="form-label">Balance :</label>
+              <div class="input-group">
+                <input type="text" readonly class="form-control py-2 text-success border border-secondary" id="balance"
+                  formControlName="balance">
+                <!-- <span class="input-group-text" style="background-image: url('../../../assets/eye.webp'); background-size: 20px; background-repeat: no-repeat; background-position: right center; cursor: pointer;" (click)="balance()"></span> -->
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="toCurrency" class="form-label">Credit To<span class="text-danger">*</span> :</label>
+            <select class="form-select form-control-lg border border-secondary" (change)='getliveCurrency($event)' id="toCurrency" formControlName="orderToAccountId" placeholder="select account"  required>
+              <option value="" disabled selected>Select currency</option>
+              <option *ngFor="let i of accounts;" value="{{i.id}}">{{i.currencyType}}-{{i.accountNumber}}</option>
+
+            </select>
+            <div *ngIf="orderToAccountId?.dirty">
+              <div *ngIf="exchangeDetails?.errors?.['accountcheck']==true" class="text-danger text-center">Credit and Debit account cannot be same</div>
+            </div>
+            </div>
+             
+          <!-- <div class="row d-flex mb-3">
+            <div class=" w-50 form-outline">
+              <label for="amount" class="form-label">Available Amount</label>
+              <input type="number" class="form-control" id="amount" formControlName="balance" required>
+            </div>
+            <div class="  align-items-center w-25 mt-4 pt-2">
+              <i class="bi bi-eye text-success fs-3"  title="Show Balance" ></i>
+            </div>
+          </div> -->
+          
+          <div class="ms-2 w-25" *ngIf="!exchangeDetails?.errors?.['accountcheck']">
+            <label for="balance" class="form-label" *ngIf="isCurrencySelected">Live Currency Rate </label>
+            <div class="input-group">
+              <!-- <input type="text" readonly class="form-control py-2 text-success border border-secondary" id="balance" formControlName="currencyRate">-->
+              <label class="form-check-label"  [ngStyle]="{'color':'black','white-space': 'nowrap', 'overflow': 'hidden', 'text-overflow': 'ellipsis'}">
+                {{ exchangeDetails.value.currencyRate}}                
+              </label>                            
+              <!-- <span class="input-group-text" style="background-image: url('../../../assets/eye.webp'); background-size: 20px; background-repeat: no-repeat; background-position: right center; cursor: pointer;" (click)="balance()"></span> -->
+            </div>
+          </div>
+
+          <div class=" form-outline  mb-3">
+            <label for="amount" class="form-label">Amount<span class="text-danger">*</span> :</label>
+            <input type="number" class="form-control border border-secondary" id="amount" formControlName="orderAmount"
+              required>
+
+            <div *ngIf="orderAmount?.dirty||orderAmount?.touched">
+
+              <div *ngIf="exchangeDetails?.errors?.['amountcheck']==true" class="text-danger text-center">Amount should
+                be less than available balance</div>
+              <div *ngIf="orderAmount?.errors?.['min']" class="text-danger text-center mt-1">Amount should be positive
+              </div>
+            </div>
+          </div>
+          <div class="form-check ">
+            <input class="form-check-input border border-secondary" type="checkbox" formControlName="checkBox"
+              id="flexCheckDefault">
+            <div *ngIf="checkBox?.dirty||checkBox?.touched">
+              <div *ngIf="checkBox?.errors?.['required']" class="text-danger text-center"></div>
+            </div>
+
+            <label class="form-check-label" for="flexCheckDefault" [ngStyle]="{'color':getColor(checkBox)}">
+              I Accept the terms and conditions
+            </label>
+          </div>
+
+
+
+          <div class="text-center pt-3" type="reset">
+            <button class="btn background" [disabled]="!exchangeDetails.valid || !exchangeDetails.get('checkBox')?.value" (click)="convert()">Convert</button>
+          </div>
+        </form>
+      </div>
+    </div>

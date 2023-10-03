@@ -1,0 +1,39 @@
+
+Comparison of Orchestration Services :
+
+https://www.youtube.com/watch?v=HoXEyXIf6_U
+
+
+ECR:
+https://www.youtube.com/watch?v=H73uX0TOX9g
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html
+
+Qwiklabs:
+Introduction to Amazon Elastic Container Service
+
+ECS-EC2 Launch Type:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html#first-run-prereqs
+
+Fargate-
+
+https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/
+
+EKS:
+
+https://www.agilepartner.net/en/build-a-kubernetes-cluster-with-eksctl/
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
+Next Steps:
+Launch a Guest Book Application — Create a sample guest book application to test your cluster and Linux worker nodes.
+
+
+
+
+
+
+
+
+
+
+
+
+

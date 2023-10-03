@@ -1,0 +1,4 @@
+com\claritrics\services\tests\LogInfo.class
+com\claritrics\services\tests\LogActivity.class
+com\claritrics\services\tests\LogError.class
+com\claritrics\services\tests\LogDebug.class

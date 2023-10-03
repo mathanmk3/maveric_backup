@@ -1,0 +1,14 @@
+Comparison of Orchestration Services :
+
+https://www.youtube.com/watch?v=HoXEyXIf6_U
+
+
+EC2 Launch Type:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html#first-run-prereqs
+
+Fargate-
+
+https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/
+
+EKS Demo:
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html

@@ -1,0 +1,8 @@
+https://docs.aws.amazon.com/codecommit/latest/userguide/getting-started-cc.html
+https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started.html
+						
+https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials.html
+ See Tutorial: Create a Simple Pipeline (Amazon S3 Bucket).
+
+AWS CodePipeline tutorial | Build a CI/CD Pipeline on AWS
+https://www.youtube.com/watch?v=NwzJCSPSPZs

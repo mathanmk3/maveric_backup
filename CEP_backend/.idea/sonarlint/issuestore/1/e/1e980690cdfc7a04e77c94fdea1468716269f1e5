@@ -1,0 +1,5 @@
+
+k	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò–Ö‘ýÿÿÿÿ
+f	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒìäŠ
+p
+java:S3305"ZInject this field value directly into "securityFilterChain", the only method that uses it.(Ÿÿžž

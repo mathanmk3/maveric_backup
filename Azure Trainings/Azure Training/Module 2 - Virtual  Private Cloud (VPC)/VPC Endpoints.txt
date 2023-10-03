@@ -1,0 +1,13 @@
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html
+
+https://www.youtube.com/watch?v=m8OZRZGfrFg
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html
+
+From Private instances - aws s3 ls
+
+After creating VPC endpoints - aws s3 ls
+
+Transit Gateway:
+https://www.youtube.com/watch?v=iVkvj2D1mKA
+

@@ -1,0 +1,45 @@
+
+€
+java:S1488G"jImmediately return this expression instead of assigning it to the temporary variable "accountResponseDto".(Ζ†Υτ
+~
+java:S1488a"cImmediately return this expression instead of assigning it to the temporary variable "responseDto".(ƒ–νέψÿÿÿÿ
+
+java:S1488u"fImmediately return this expression instead of assigning it to the temporary variable "accountDtoList".(ε¬φÿϊÿÿÿÿ
+}
+java:S1488Μ"fImmediately return this expression instead of assigning it to the temporary variable "accountDtoList".(η©ά«
+R
+java:S26296"7Use the built-in formatting to construct this argument.(ªΐΔτώÿÿÿÿ
+S
+java:S2629”"7Use the built-in formatting to construct this argument.(¦·ξωÿÿÿÿ
+S
+java:S2629¨"7Use the built-in formatting to construct this argument.(ƒΈ®ύÿÿÿÿ
+S
+java:S2629ª"7Use the built-in formatting to construct this argument.(πήÿÿÿÿÿ
+s
+java:S2629¬"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(„‡’π
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ω™¶Υύÿÿÿÿ
+@
+java:S34571"%String contains no format specifiers.(€„¦ÿÿÿÿÿ
+\
+java:S34576"AFormat specifiers should be used instead of string concatenation.(ªΐΔτώÿÿÿÿ
+\
+java:S3457?"AFormat specifiers should be used instead of string concatenation.(ιρ‘¶όÿÿÿÿ
+Y
+java:S1155t">Use isEmpty() to check whether the collection is empty or not.(ΔΨί©όÿÿÿÿ
+h
+java:S6204w"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή
+Q	java:S125{"<This block of commented-out lines of code should be removed.(Ϋίη™
+B
+java:S1168"+Return an empty collection instead of null.(¥Ήο
+]
+java:S3457”"AFormat specifiers should be used instead of string concatenation.(¦·ξωÿÿÿÿ
+]
+java:S3457¨"AFormat specifiers should be used instead of string concatenation.(ƒΈ®ύÿÿÿÿ
+]
+java:S3457ª"AFormat specifiers should be used instead of string concatenation.(πήÿÿÿÿÿ
+X
+java:S3457¬"AFormat specifiers should be used instead of string concatenation.(„‡’π
+U
+java:S1155Λ">Use isEmpty() to check whether the collection is empty or not.(€ήή
+n
+java:S6204Ν"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¤‰‰Ιÿÿÿÿÿ

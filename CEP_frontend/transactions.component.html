@@ -1,0 +1,43 @@
+<h2 class="mt-2 " style="text-align: right; margin-right: 10px;">Customer Name : <span class="text-success fw-bold"> {{userName[0] | uppercase}}</span></h2>
+<div class="container mt-4">
+  <div class="text-center" *ngIf="display">
+    <img *ngIf="service.datanotfound" src="../../../assets/nodatafound.avif" style="justify-content: center; height: 300px;">
+  </div>
+  
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let order of transactions | paginate :{
+        itemsPerPage:6,
+        currentPage:pageNumber,
+        totalItems:totalRecords
+      } ">
+        <div class="card shadow color my-card">
+          <div class="card-body d-flex justify-content-between">
+            <div>
+              <h5 class="card-title">Transfer Amount:</h5>
+              <p class="card-title fs-3">{{order.orderAmount}} {{order.orderFromCurrencyType}}</p>
+              
+              <h5 class="text-danger">{{order.exchangeDateTime | date: 'short'}}</h5></div>
+            
+            <div class="text-center text-success">
+                <h5 class="text-dark">Rate : <span class="text-success">{{order.currencyRate}}</span></h5>
+                
+                
+                <h5 class="text-dark">Credited : <span class="text-success">{{order.currencyRate *order.orderAmount | number}} {{order.orderToCurrencyType}}</span> </h5>
+            </div>
+            <div>
+              <div>{{order.orderFromCurrencyType}}</div>
+              <i class="bi bi-arrow-down text-success mt-0"></i>
+              <p class="card-text">{{order.orderToCurrencyType}}</p>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="!service.datanotfound" >
+  <pagination-controls (pageChange)="pageNumber =$event"></pagination-controls>
+</div>
+  
+  

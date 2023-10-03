@@ -1,0 +1,15 @@
+
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(Àİ¡õşÿÿÿÿ
+7
+java:S1116"Remove this empty statement.(ôŸìúÿÿÿÿ
+F
+java:S1874)"0Remove this use of "signWith"; it is deprecated.(£óï½
+K
+java:S18748"0Remove this use of "signWith"; it is deprecated.(ÅÉûûÿÿÿÿ
+P
+java:S1874>"5Remove this use of "setSigningKey"; it is deprecated.(ÔÖïçÿÿÿÿÿ
+P
+java:S1874I"5Remove this use of "setSigningKey"; it is deprecated.(ÔÖïçÿÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'io.jsonwebtoken.Jws'.(şœüê

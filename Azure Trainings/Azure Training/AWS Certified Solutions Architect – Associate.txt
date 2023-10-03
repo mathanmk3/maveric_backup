@@ -1,0 +1,139 @@
+Networking
+Be sure to create VPC from scratch. This is mandatory.
+Create VPC and understand whats an CIDR and addressing patterns
+Create public and private subnets, configure proper routes, security groups, NACLs. (hint: Subnets are public or private depending on whether they can route traffic directly through Internet gateway)
+Create Bastion for communication with instances
+Create NAT Gateway or Instances for instances in private subnets to interact with internet
+Create two tier architecture with application in public and database in private subnets
+Create three tier architecture with web servers in public, application and database servers in private. (hint: focus on security group configuration with least privilege)
+Make sure to understand how the communication happens between Internet, Public subnets, Private subnets, NAT, Bastion etc.
+Understand difference between Security Groups and NACLs (hint: Security Groups are Stateful vs NACLs are stateless. Also only NACLs provide an ability to deny or block IPs)
+Understand VPC endpoints and what services it can help interact (hint: VPC Endpoints routes traffic internally without Internet)
+VPC Gateway Endpoints supports S3 and DynamoDB.
+VPC Interface Endpoints OR Private Links supports others
+Understand difference between NAT Gateway and NAT Instance (hint: NAT Gateway is AWS managed and is scalable and highly available)
+Understand how NAT high availability can be achieved (hint: provision NAT in each AZ and route traffic from subnets within that AZ through that NAT Gateway)
+Understand VPN and Direct Connect for on-premises to AWS connectivity
+VPN provides quick connectivity, cost-effective, secure channel, however routes through internet and does not provide consistent throughput
+Direct Connect provides consistent dedicated throughput without Internet, however requires time to setup and is not cost-effective
+Understand Data Migration techniques
+Choose Snowball vs Snowmobile vs Direct Connect vs VPN depending on the bandwidth available, data transfer needed, time available, encryption requirement, one-time or continuous requirement
+Snowball, SnowMobile are for one-time data, cost-effective, quick and ideal for huge data transfer
+Direct Connect, VPN are ideal for continuous or frequent data transfers
+Understand CloudFront as CDN and the static and dynamic caching it provides, what can be its origin (hint: CloudFront can point to on-premises sources and its usecases with S3 to reduce load and cost)
+Understand Route 53 for routing
+Understand Route 53 health checks and failover routing
+Understand  Route 53 Routing Policies it provides and their use cases mainly for high availability (hint: focus on weighted, latency, geolocation, failover routing)
+Be sure to cover ELB concepts in deep.
+SAA-C02 focuses on ALB and NLB and does not cover CLB
+Understand differences between  CLB vs ALB vs NLB
+ALB is layer 7 while NLB is layer 4
+ALB provides content based, host based, path based routing
+ALB provides dynamic port mapping which allows same tasks to be hosted on ECS node
+NLB provides low latency and ability to scale
+NLB provides static IP address
+
+
+Security
+Understand IAM as a whole
+Focus on IAM role (hint: can be used for EC2 application access and Cross-account access)
+Understand IAM identity providers and federation and use cases
+Understand MFA and how would implement two factor authentication for an application
+Understand IAM Policies (hint: except couple of questions with policies defined and you need to select correct statements)
+Understand encryption services
+KMS for key management and envelope encryption
+Focus on S3 with SSE, SSE-C, SSE-KMS
+Know SQS now provides SSE support 
+AWS WAF integrates with CloudFront to provide protection against Cross-site scripting (XSS) attacks. It also provide IP blocking and geo-protection.
+AWS Shield integrates with CloudFront to provide protection against DDoS.
+Refer Disaster Recovery whitepaper, be sure you know the different recovery types with impact on RTO/RPO.
+
+
+Storage
+Understand various storage options S3, EBS, Instance store, EFS, Glacier, FSx and what are the use cases and anti patterns for each
+Instance Store
+Understand Instance Store (hint: it is physically attached  to the EC2 instance and provides the lowest latency and highest IOPS)
+Elastic Block Storage – EBS
+Understand various EBS volume types and their use cases in terms of IOPS and throughput. SSD for IOPS and HDD for throughput
+Understand Burst performance and I/O credits to handle occasional peaks
+Understand EBS Snapshots (hint: backups are automated, snapshots are manual) 
+Simple Storage Service – S3
+Cover S3 in depth
+Understand S3 storage classes with lifecycle policies
+Understand the difference between SA Standard vs SA IA vs SA IA One Zone in terms of cost and durability
+Understand S3 Data Protection (hint: S3 Client side encryption encrypts data before storing it in S3)
+Understand S3 features including
+S3 provides a cost effective static website hosting
+S3 versioning provides protection against accidental overwrites and deletions
+S3 Pre-Signed URLs for both upload and download provides access without needing AWS credentials
+S3 CORS allows cross domain calls
+S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket.
+Understand Glacier as an archival storage with various retrieval patterns
+Glacier Expedited retrieval now allows object retrieval within mins
+Understand Storage gateway and its different types.
+Cached Volume Gateway provides access to frequently accessed data, while using AWS as the actual storage
+Stored Volume gateway uses AWS as a backup, while the data is being stored on-premises as well
+File Gateway supports SMB protocol
+Understand FSx easy and cost effective to launch and run popular file systems.
+FSx provides two file systems to choose from: Amazon FSx for Windows File Server for business applications and Amazon FSx for Lustre for high-performance workloads.
+Understand the difference between EBS vs S3 vs EFS
+EFS provides shared volume across multiple EC2 instances, while EBS can be attached to a single volume within the same AZ.
+Understand the difference between EBS vs Instance Store
+Would recommend referring Storage Options whitepaper, although a bit dated 90% still holds right
+
+
+Compute
+Understand Elastic Cloud Compute – EC2
+Understand Auto Scaling and ELB, how they work together to provide High Available and Scalable solution. (hint: Span both ELB and Auto Scaling across Multi-AZs to provide High Availability)
+Understand EC2 Instance Purchase Types – Reserved, Scheduled Reserved, On-demand and Spot and their use cases
+Choose Reserved Instances for continuous persistent load
+Choose Scheduled Reserved Instances for load with fixed scheduled and time interval
+Choose Spot instances for fault tolerant and Spiky loads
+Reserved instances provides cost benefits for long terms requirements over On-demand instances
+Spot instances provides cost benefits for temporary fault tolerant spiky load
+Understand EC2 Placement Groups (hint: Cluster placement groups provide low latency and high throughput communication, while Spread placement group provides high availability)
+Understand Lambda and serverless architecture, its features and use cases. (hint: Lambda integrated with API Gateway to provide a serverless, highly scalable, cost-effective architecture)
+Understand ECS with its ability to deploy containers and micro services architecture.
+ECS role for tasks can be provided through taskRoleArn
+ALB provides dynamic port mapping to allow multiple same tasks on the same node
+Know Elastic Beanstalk at a high level, what it provides and its ability to get an application running quickly.
+
+
+Databases
+Understand relational and NoSQLs data storage options which include RDS, DynamoDB, Aurora and their use cases
+RDS
+Understand RDS features – Read Replicas vs Multi-AZ
+Read Replicas for scalability, Multi-AZ for High Availability
+Multi-AZ are regional only
+Read Replicas can span across regions and can be used for disaster recovery
+Understand Automated Backups, underlying volume types
+Aurora
+Understand Aurora
+provides multiple read replicas and replicates 6 copies of data across AZs
+Understand Aurora Serverless provides a highly scalable cost-effective database solution
+DynamoDB
+Understand DynamoDB with its low latency performance, key-value store (hint: DynamoDB is not a relational database)
+DynamoDB DAX provides caching for DynamoDB
+Understand DynamoDB provisioned throughput for Read/Writes (It is more cover in Developer exam though.)
+Know ElastiCache use cases, mainly for caching performance
+
+
+Integration Tools
+Understand SQS as message queuing service and SNS as pub/sub notification service
+Understand SQS features like visibility, long poll vs short poll
+Focus on SQS as a decoupling service
+Understand SQS Standard vs SQS FIFO difference (hint: FIFO provides exactly once delivery both low throughput)
+
+
+Analytics
+Know Redshift as a business intelligence tool
+Know Kinesis for real time data capture and analytics
+Atleast know what AWS Glue does, so you can eliminate the answer
+
+
+Management Tools
+Understand CloudWatch monitoring to provide operational transparency
+Know which EC2 metrics it can track. Remember, it cannot track memory and disk space/swap utilization
+Understand CloudWatch is extendable with custom metrics
+Understand CloudTrail for Audit
+Have a basic understanding of CloudFormation, OpsWorks
